@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Lisa Das</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff7f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #fff7f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ff7e5f;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #ff7e5f;
+    }
+    main {
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff7e5f;
+    }
+    form {
+      background: #fff;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #ff7e5f;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #eb6b4a;
+    }
+    .socials {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .socials img {
+      width: 32px;
+      margin: 0 10px;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+    }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: none;
+      font-size: 0.95rem;
+      z-index: 9999;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    @keyframes fadein { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes fadeout { from {opacity: 1;} to {opacity: 0;} }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #fff7f0;
+      color: #777;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="logo">Lisa Das</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">About Me</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">My Work</a></li>
+        <li><a href="contact.html" class="active">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ Contact Form -->
+  <main>
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input name="user_name" type="text" placeholder="Your Name" required />
+      <input name="user_email" type="email" placeholder="Your Email" required />
+      <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="socials">
+      <a href="https://github.com/lisadascse72" target="_blank">
+        <img src="assets/images/icons/github.svg" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/lisa-das-9aab0a244/" target="_blank">
+        <img src="assets/images/icons/linkedin.svg" alt="LinkedIn">
+      </a>
+    </div>
+  </main>
+
+  <!-- ✅ Toast for alerts -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ✅ External Contact Logic -->
+  <script type="module" src="js/contact.js"></script>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Lisa Das. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
