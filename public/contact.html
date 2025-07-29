@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | Lisa Das</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="/src/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
   <style>
-    <canvas id="cursorCanvas"></canvas>
-    <script src="js/cursor.js"></script>
+
+   <canvas id="cursorCanvas"></canvas>
+   <script src="/src/js/cursor.js"></script>
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -189,10 +190,10 @@
 
     <div class="socials">
       <a href="https://github.com/lisadascse72" target="_blank">
-        <img src="assets/images/icons/github.svg" alt="GitHub">
+        <img src="/src/assets/images/icons/github.svg" alt="GitHub">
       </a>
       <a href="https://www.linkedin.com/in/lisa-das-9aab0a244/" target="_blank">
-        <img src="assets/images/icons/linkedin.svg" alt="LinkedIn">
+        <img src="/src/assets/images/icons/linkedin.svg" alt="LinkedIn">
       </a>
     </div>
   </main>
@@ -201,11 +202,11 @@
   <div class="toast" id="toast"></div>
 
   <!-- ✅ External Contact Logic -->
-  <script type="module" src="js/contact.js"></script>
+  <script type="module" src="/src/js/contact.js"></script>
     <!-- Other scripts -->
-  <script src="js/main.js"></script>
-  <canvas id="cursorCanvas"></canvas>
-  <script src="js/cursor.js"></script>
+  <script src="/src/js/main.js"></script>
+  <canvas id="/src/cursorCanvas"></canvas>
+  <script src="/src/js/cursor.js"></script>
 
 <!-- ✅ Animated intro text above robot -->
 <div class="robot-intro" id="robotIntro">
@@ -217,7 +218,7 @@
 <div class="floating-robot-wrapper" id="robotWrapper">
   <model-viewer
     id="cuteRobot"
-    src="assets/models/robot.glb"
+    src="/src/assets/models/robot.glb"
     alt="3D Robot"
     camera-controls
     auto-rotate

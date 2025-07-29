@@ -550,7 +550,19 @@ form textarea {
 
 /* project css */
 
+.github-link-blue {
+  color: #007bff;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 0.7rem;
+  text-decoration: none;
+  display: inline-block;
+}
 
+.github-link-blue:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
 
 
 
