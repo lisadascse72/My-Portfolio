@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <canvas id="cursorCanvas"></canvas>
+<script src="js/cursor.js"></script>
   <header class="navbar">
     <div class="logo">Lisa Das</div>
     <nav>
@@ -20,6 +22,7 @@
       </ul>
     </nav>
   </header>
+
 
   <main class="resume-container">
     <!-- Education -->
@@ -112,16 +115,38 @@
         <div class="activity-card">Painting</div>
         <div class="activity-card">Volunteering & Fundraising</div>
       </div>
-    </section>
 
-    <!-- Resume Download -->
-    <section class="section center">
-      <a href="pdf/Lisa_Das_Resume.pdf" download class="btn pastel-btn">Download Resume</a>
+  <!-- Resume Banner with Robot -->
+<div class="resume-top-banner">
+  <div class="left-quote-glow">
+    <p class="glow-slide">"Crafting code with creativity and impact."</p>
+  </div>
+  <div class="resume-banner">
+    <img src="assets/images/chatbot.svg" alt="Robot waving" class="robot-illustration" />
+    <p class="typewriter-text">Hi, here’s my resume</p>
+    <a href="pdf/Lisa_Das_Resume.pdf" download class="btn pastel-btn">Download Resume</a>
+  </div>
+</div>
+
+
     </section>
-  </main>
 
   <footer>
     <p>© 2025 Lisa Das. All rights reserved.</p>
   </footer>
+  <!-- idk robot test -->
+<script>
+  const robot = document.querySelector('.robot-illustration');
+  document.addEventListener('mousemove', (e) => {
+    const x = (window.innerWidth / 2 - e.clientX) / 60;
+    const y = (window.innerHeight / 2 - e.clientY) / 60;
+    robot.style.transform = `translateY(-5px) rotateX(${y}deg) rotateY(${-x}deg)`;
+  });
+  robot.addEventListener('mouseleave', () => {
+    robot.style.transform = 'translateY(0) rotate(0)';
+  });
+</script>
+
+
 </body>
 </html>
