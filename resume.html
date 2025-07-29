@@ -3,14 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resume | Lisa Das</title>
+  <title>Resume | Lisa Das</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  
+  <!-- model-viewer for 3D robot -->
+  <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    .floating-robot-wrapper {
+      position: fixed;
+      bottom: 0;
+      right: 20px;
+      z-index: 10;
+      width: 220px;
+      height: 220px;
+      transition: transform 1s ease, bottom 1s ease;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    .float-up {
+      transform: translateY(-80vh);
+    }
+
+    .robot-caption {
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+      margin-top: 5px;
+      font-family: Poppins, sans-serif;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      75% { transform: rotate(3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .shake {
+      animation: shake 0.4s ease;
+    }
+  </style> -->
 </head>
+
 <body>
   <canvas id="cursorCanvas"></canvas>
-<script src="js/cursor.js"></script>
+  <script src="js/cursor.js"></script>
+
   <header class="navbar">
     <div class="logo">Lisa Das</div>
     <nav>
@@ -23,17 +71,18 @@
     </nav>
   </header>
 
-
   <main class="resume-container">
+ 
+
     <!-- Education -->
     <section class="section">
       <h2 class="section-title">Education</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <h3>Veer Surendra Sai University of Technology, Burla</h3>
+          <h3>Veer Surendra Sai University of Technology, Burla</h3>
           <p><strong>B.Tech in Computer Science &amp; Engineering</strong></p>
-          <span>2021 – 2025</span>
-          <p>Relevant coursework: Database Systems, Machine Learning, Data Structures &amp; Algorithms, Web Development</p>
+          <span>2022 – 2026</span>
+          <p>CGPA - 7.59 </p>
         </div>
       </div>
     </section>
@@ -42,29 +91,29 @@
     <section class="section">
       <h2 class="section-title">Experience & Internships</h2>
       <div class="timeline">
-                 <div class="timeline-item">
-      <h3>Web Development Intern & Documentation Lead – Tata Steel, Kalinganagar</h3>
-      <span>May 2025 – July 2025</span>
-      <p>Working on MERN‑stack web development, focusing on UI/UX, backend integration, and creating internal documentation for frontend and backend systems.</p>
-    </div>
+        <div class="timeline-item">
+          <h3>Web Development Intern & Documentation Lead – Tata Steel, Kalinganagar</h3>
+          <span>May 2025 – July 2025</span>
+          <p>Developed a full stack(MERN) web platform for industrial process management, focusing on UI/UX, backend integration and creating documentation.</p>
+        </div>
 
         <div class="timeline-item">
           <h3>Content Writer Intern – Pehchaan: The Street School</h3>
           <span>May 2025 – Present</span>
-          <p>Curated event-centric articles, highlighted cultural stories and communications for underprivileged children.</p>
+          <p>Curated interactive and social impact articles focusing on social initiatives and education for underprivileged children.</p>
         </div>
-        <!-- Add other internships or part‑time experience here -->
 
-    <div class="timeline-item">
-      <h3>Python Training Intern – OCAC</h3>
-      <span>May 2024 - July 2024</span>
-      <p>Completed intensive hands‑on training in Python programming, automation scripting, and data processing fundamentals.</p>
-    </div>
-    <div class="timeline-item">
-      <h3>C++ & Data Structures Training – OCAC</h3>
-      <span>May 2023 - July 2023</span>
-      <p>Trained extensively in C++ programming, Object‑Oriented Programming (OOP), and core Data Structures algorithms.</p>
-    </div>
+        <div class="timeline-item">
+          <h3>Python Training Intern – OCAC</h3>
+          <span>May 2024 - July 2024</span>
+          <p>Completed intensive hands‑on training in Python programming and built plant disease detection Project.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>C++ & Data Structures Training – OCAC</h3>
+          <span>May 2023 - July 2023</span>
+          <p>completed training program for C++ programming, Object‑Oriented Programming (OOP) and Data Structures & algorithms.</p>
+        </div>
       </div>
     </section>
 
@@ -74,22 +123,22 @@
       <div class="timeline">
         <div class="timeline-item">
           <h3>TextBot Assistant</h3>
-          <span>Python · Flask · JavaScript · OpenAI API</span>
+          <span>React · Gemini API · JavaScript </span>
           <p>An AI-powered chatbot that assists users in real‑time text queries. Backend built in Flask and Python.</p>
         </div>
         <div class="timeline-item">
           <h3>SafeTrace</h3>
-          <span>HTML · CSS · JavaScript · Firebase</span>
+          <span>HTML · CSS · JavaScript · React · Node JS · MongoDB</span>
           <p>Privacy-focused crowd-sourced SOS and contact tracing app developed during the pandemic.</p>
         </div>
         <div class="timeline-item">
           <h3>CellCycle</h3>
-          <span>Node.js · MongoDB · React · ML</span>
-          <p>An AI-driven battery recycling prediction system built for sustainability during Tata Elxsi Hackathon.</p>
+          <span>Node.js · MongoDB · React · AI-ML · HTML · CSS · Python</span>
+          <p>An AI-driven digital twin & battery life cycle prediction system built for sustainability during Tata Elxsi Hackathon.</p>
         </div>
         <div class="timeline-item">
           <h3>Retail Sales Dashboard</h3>
-          <span>JavaScript · Data Visualization · Power BI</span>
+          <span>Python· Numpy · Pandas · Data Visualization · Power BI</span>
           <p>Interactive dashboard visualizing retail sale trends and insights.</p>
         </div>
       </div>
@@ -100,8 +149,8 @@
       <h2 class="section-title">Technical Skills</h2>
       <div class="skills-grid">
         <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span>
-        <span>Flask</span><span>Node.js</span><span>MongoDB</span><span>Firebase</span>
-        <span>Git</span><span>Power BI</span><span>OpenCV</span>
+        <span>React</span><span>Node JS</span><span>Express JS</span><span>MongoDB</span><span>API</span>
+        <span>SQL</span><span>Github</span><span>Power BI</span><span>Ms excel</span><span>Figma</span>
       </div>
     </section>
 
@@ -110,43 +159,25 @@
       <h2 class="section-title">Co-curricular Activities</h2>
       <div class="activities">
         <div class="activity-card">Public Speaking</div>
-        <div class="activity-card">Event Coordination</div>
+        <div class="activity-card">Event Management</div>
         <div class="activity-card">Content Writing</div>
-        <div class="activity-card">Painting</div>
+        <div class="activity-card">Video editing</div>
         <div class="activity-card">Volunteering & Fundraising</div>
       </div>
 
-  <!-- Resume Banner with Robot -->
-<div class="resume-top-banner">
-  <div class="left-quote-glow">
-    <p class="glow-slide">"Crafting code with creativity and impact."</p>
-  </div>
-  <div class="resume-banner">
-    <img src="assets/images/chatbot.svg" alt="Robot waving" class="robot-illustration" />
-    <p class="typewriter-text">Hi, here’s my resume</p>
-    <a href="pdf/Lisa_Das_Resume.pdf" download class="btn pastel-btn">Download Resume</a>
-  </div>
-</div>
-
-
+         <!-- Resume Banner with SVG Robot -->
+    <div class="resume-top-banner">
+      <div class="left-quote-glow">
+        <p class="glow-slide">"Crafting code with creativity and impact."</p>
+      </div>
+      <div class="resume-banner">
+        <img src="assets/images/chatbot.svg" alt="Robot waving" class="robot-illustration" />
+        <p class="typewriter-text">Hi, here’s my official resume</p>
+        <a href="pdf/Lisa_Das_Resume.pdf" download class="btn pastel-btn">Download Resume</a>
+      </div>
+    </div>
+    
     </section>
-
-  <footer>
-    <p>© 2025 Lisa Das. All rights reserved.</p>
-  </footer>
-  <!-- idk robot test -->
-<script>
-  const robot = document.querySelector('.robot-illustration');
-  document.addEventListener('mousemove', (e) => {
-    const x = (window.innerWidth / 2 - e.clientX) / 60;
-    const y = (window.innerHeight / 2 - e.clientY) / 60;
-    robot.style.transform = `translateY(-5px) rotateX(${y}deg) rotateY(${-x}deg)`;
-  });
-  robot.addEventListener('mouseleave', () => {
-    robot.style.transform = 'translateY(0) rotate(0)';
-  });
-</script>
-
-
+  </main>
 </body>
 </html>

@@ -420,4 +420,70 @@ form textarea {
   z-index: 9999;
 }
 
+/* robot test animation */
 
+.floating-robot-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  cursor: grab;
+  user-select: none;
+}
+
+
+.floating-robot-wrapper .robot-caption {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 4px;
+  color: #666;
+  font-family: Poppins, sans-serif;
+}
+
+/* 3d robot hi bol raha contact page me */
+.robot-intro {
+  position: fixed;
+  bottom: 280px; /* just above the robot */
+  right: 20px;
+  background-color: #fff3f3;
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 1.5s ease-out forwards;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #ff7e5f;
+  z-index: 1000;
+  opacity: 0;
+  max-width: 240px;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* robot pe hover */
+.robot-hover-instruction {
+  opacity: 0;
+  font-size: 0.85rem;
+  background-color: #ffe6f0;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  margin-top: 8px;
+  text-align: center;
+  transition: opacity 0.5s ease;
+  color: #5c5470;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Show on hover */
+.floating-robot-wrapper:hover .robot-hover-instruction {
+  opacity: 1;
+}
