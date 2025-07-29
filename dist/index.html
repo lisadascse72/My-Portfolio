@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lisa Das | Portfolio</title> <!-- ✅ New slideshow CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/cursor-D9A7CUIM.js"></script>
+  <script type="module" crossorigin src="/assets/main-l0sNRNKZ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/cursor-32fhCgzc.css">
+  <link rel="stylesheet" crossorigin href="/assets/main-CMpjn0qL.css">
+  <link rel="stylesheet" crossorigin href="/assets/animations-fEynIcSC.css">
+</head>
+
+<canvas id="cursorCanvas"></canvas>
+
+<body>
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="logo">Lisa Das</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">About Me</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">My Work</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <!-- ✅ Hero Section -->
+<main class="hero-section">
+  <div class="hero-wrapper">
+    
+    <!-- 🔹 Left slideshow -->
+    <div class="slideshow left-slide">
+      <img src="/assets/photo1-DQ0D1dei.png" alt="Slide 1">
+      <img src="/assets/photo2-BhMdUCoV.png" alt="Slide 2">
+      <img src="/assets/photo3-CjWuUP4I.png" alt="Slide 3">
+      <img src="/assets/photo4-BTEbigRK.png" alt="Slide 4">
+      <img src="/assets/photo5-D-Y-jv45.png" alt="Slide 5">
+      <img src="/assets/photo6-DgmuHnns.png" alt="Slide 6">
+    </div>
+
+    <!-- 🔸 Center content (your original block) -->
+    <div class="hero-content fade-in">
+      <div class="hero-text">
+        <h1>Hi, I'm Lisa 👩🏻‍💻</h1>
+        <p class="tagline">Web developer • Data Analyst • UI/UX • Content Writer</p>
+        <p class="bio">
+          I’m a final-year Computer Science student skilled in full-stack development and data analytics. With experience in building web apps, content writing, public speaking, and event planning, I blend technical knowledge with creativity and teamwork. I've also contributed to community initiatives and outreach programs. I'm passionate about creating meaningful, user-centric solutions through code, collaboration and creativity.
+        </p>
+        <!-- <a href="resume.html" class="btn pastel-btn">View Resume</a> -->
+
+<a href="/Lisa_Das_Resume.pdf" target="_blank" class="btn pastel-btn">View Resume</a>
+
+
+
+      </div>
+      <div class="hero-image">
+        <img src="/assets/my%20pic-DeNSo5oc.png" alt="Lisa Das" class="profile-pic" />
+      </div>
+    </div>
+
+    <!-- 🔹 Right slideshow -->
+    <div class="slideshow right-slide">
+      <img src="/assets/photo7-KoSY1xQs.png" alt="Slide 7">
+      <img src="/assets/photo8-B5WlpwVM.png" alt="Slide 8">
+      <img src="/assets/photo9-D-Cdinxt.png" alt="Slide 9">
+      <img src="/assets/photo10-Bu6Ukf-2.png" alt="Slide 10">
+      <img src="/assets/photo11-8gAesL0a.png" alt="Slide 11">
+      <img src="/assets/photo12-C83mRuFW.png" alt="Slide 12">
+    </div>
+
+  </div>
+</main>
+
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Lisa Das. All rights reserved.</p>
+  </footer>
+
+
+
+  <!-- Lightbox Viewer -->
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="Full View" />
+</div>
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".slideshow img").forEach((img) => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Close lightbox on click
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+</script>
+
+
+</body>
+</html>

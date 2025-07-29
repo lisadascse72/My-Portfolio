@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Lisa Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+
+   <canvas id="cursorCanvas"></canvas>
+   <script type= "module" src="/src/js/cursor.js"></script>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff7f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #fff7f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ff7e5f;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #ff7e5f;
+    }
+    main {
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff7e5f;
+    }
+    form {
+      background: #fff;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #ff7e5f;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #eb6b4a;
+    }
+    .socials {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .socials img {
+      width: 32px;
+      margin: 0 10px;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+    }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: none;
+      font-size: 0.95rem;
+      z-index: 9999;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    @keyframes fadein { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes fadeout { from {opacity: 1;} to {opacity: 0;} }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #fff7f0;
+      color: #777;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+   <!-- model-viewer for 3D robot -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    .floating-robot-wrapper {
+      position: fixed;
+      bottom: 0;
+      right: 20px;
+      z-index: 10;
+      width: 220px;
+      height: 220px;
+      transition: transform 1s ease, bottom 1s ease;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    .float-up {
+      transform: translateY(-80vh);
+    }
+
+    .robot-caption {
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+      margin-top: 5px;
+      font-family: Poppins, sans-serif;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      75% { transform: rotate(3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .shake {
+      animation: shake 0.4s ease;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/contact-CyAnWupQ.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/cursor-D9A7CUIM.js">
+  <link rel="modulepreload" crossorigin href="/assets/main-l0sNRNKZ.js">
+  <link rel="stylesheet" crossorigin href="/assets/cursor-32fhCgzc.css">
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="logo">Lisa Das</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">About Me</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">My Work</a></li>
+        <li><a href="contact.html" class="active">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ Contact Form -->
+  <main>
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input name="user_name" type="text" placeholder="Your Name" required />
+      <input name="user_email" type="email" placeholder="Your Email" required />
+      <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="socials">
+      <a href="https://github.com/lisadascse72" target="_blank">
+        <img src="data:image/svg+xml,%3csvg%20role='img'%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3ctitle%3eGitHub%3c/title%3e%3cpath%20d='M12%20.297c-6.63%200-12%205.373-12%2012%200%205.303%203.438%209.8%208.205%2011.385.6.113.82-.258.82-.577%200-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422%2018.07%203.633%2017.7%203.633%2017.7c-1.087-.744.084-.729.084-.729%201.205.084%201.838%201.236%201.838%201.236%201.07%201.835%202.809%201.305%203.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93%200-1.31.465-2.38%201.235-3.22-.135-.303-.54-1.523.105-3.176%200%200%201.005-.322%203.3%201.23.96-.267%201.98-.399%203-.405%201.02.006%202.04.138%203%20.405%202.28-1.552%203.285-1.23%203.285-1.23.645%201.653.24%202.873.12%203.176.765.84%201.23%201.91%201.23%203.22%200%204.61-2.805%205.625-5.475%205.92.42.36.81%201.096.81%202.22%200%201.606-.015%202.896-.015%203.286%200%20.315.21.69.825.57C20.565%2022.092%2024%2017.592%2024%2012.297c0-6.627-5.373-12-12-12'/%3e%3c/svg%3e" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/lisa-das-9aab0a244/" target="_blank">
+        <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='iso-8859-1'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20height='800px'%20width='800px'%20version='1.1'%20id='Layer_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20382%20382'%20xml:space='preserve'%3e%3cpath%20style='fill:%230077B7;'%20d='M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889%20C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z%20M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056%20H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806%20c5.554,0,10.056,4.502,10.056,10.056V329.844z%20M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1%20s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z%20M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73%20c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079%20c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426%20c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472%20L341.91,330.654L341.91,330.654z'/%3e%3c/svg%3e" alt="LinkedIn">
+      </a>
+    </div>
+  </main>
+
+  <!-- ✅ Toast for alerts -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ✅ External Contact Logic -->
+    <!-- Other scripts -->
+  <canvas id="/src/cursorCanvas"></canvas>
+
+<!-- ✅ Animated intro text above robot -->
+<div class="robot-intro" id="robotIntro">
+  <span class="intro-text"><h2>👋 Hey, let’s get to know each other! contact me</h2><p style="color: rgb(49, 238, 49);">●Click & Move to Rotate<br>●Double-click & move to Drag me.</p></span>
+</div>
+
+<!-- ✅ Only ONE 3D robot, draggable and rotatable across screen -->
+
+<div class="floating-robot-wrapper" id="robotWrapper">
+  <model-viewer
+    id="cuteRobot"
+    src="/public/assets/models/robot.glb"
+    alt="3D Robot"
+    camera-controls
+    auto-rotate
+    ar
+    shadow-intensity="1"
+    exposure="1"
+    interaction-prompt="none"
+    style="width: 250px; height: 250px; touch-action: none;"
+  ></model-viewer>
+
+  <!-- Hover hint (initially hidden, shown on hover) -->
+  <div class="robot-hover-instruction" id="robotHint">
+    ●Click & Move = Rotate <br>●Double-click Move = Drag
+  </div>
+</div>
+
+
+
+<!-- ✅ Script for dragging + cursor tracking -->
+
+<script>
+  const wrapper = document.getElementById("robotWrapper");
+  let dragMode = false;
+
+  let offsetX = 0;
+  let offsetY = 0;
+  let isDragging = false;
+
+  // 🟢 Double click to enter drag mode
+  wrapper.addEventListener("dblclick", (e) => {
+    dragMode = true;
+    wrapper.style.cursor = "grabbing";
+    console.log("🔁 Drag mode ON");
+  });
+
+  // 🛑 Single click disables drag mode
+  wrapper.addEventListener("click", (e) => {
+    if (dragMode) {
+      dragMode = false;
+      isDragging = false;
+      wrapper.style.cursor = "grab";
+      console.log("⛔ Drag mode OFF");
+    }
+  });
+
+  // 👇 When mouse down in drag mode
+  wrapper.addEventListener("mousedown", (e) => {
+    if (!dragMode) return;
+    isDragging = true;
+    offsetX = e.clientX - wrapper.getBoundingClientRect().left;
+    offsetY = e.clientY - wrapper.getBoundingClientRect().top;
+  });
+
+  // 🧲 Move the robot with cursor
+  document.addEventListener("mousemove", (e) => {
+    if (!dragMode || !isDragging) return;
+
+    wrapper.style.left = `${e.clientX - offsetX}px`;
+    wrapper.style.top = `${e.clientY - offsetY}px`;
+    wrapper.style.bottom = "auto";
+    wrapper.style.right = "auto";
+    wrapper.style.position = "fixed";
+  });
+
+  // 🖱️ Mouse up = stop dragging
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+</script>
+
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Lisa Das. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
