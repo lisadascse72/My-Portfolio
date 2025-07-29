@@ -5,6 +5,21 @@ body {
   color: #333;
 }
 
+body, * {
+  cursor: url('../assets/cursor/cursor.png') 16 16, auto;
+}
+
+
+/* cursor design */
+#cursorCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -39,6 +54,16 @@ body {
 .nav-links a:hover {
   color: #e69eb7;
 }
+
+/* my description short colour  */
+.tagline {
+  font-size: 1.2rem;
+  color: #b96eff;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px #d4a5ff, 0 0 10px #b96eff;
+}
+
+ /* hero section */
 
 .hero-section {
   display: flex;
@@ -401,6 +426,41 @@ form textarea {
   background-color: #f3b5c3;
 }
 
+/* project header */
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.glow-slide {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(to right, #ff7eb9, #ff65a3, #ff3caa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  opacity: 0;
+  animation: slideGlow 3s ease forwards;
+}
+
+@keyframes slideGlow {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
 /* project images */
 
 .project-image {
@@ -487,3 +547,6 @@ form textarea {
 .floating-robot-wrapper:hover .robot-hover-instruction {
   opacity: 1;
 }
+
+
+
