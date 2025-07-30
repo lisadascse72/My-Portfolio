@@ -6,7 +6,10 @@ const showToast = (msg, success = true) => {
   toast.style.background = success ? "#4BB543" : "#FF3333";
   toast.innerText = msg;
   toast.style.display = "block";
-  setTimeout(() => {
+
+  // Only one toast at a time
+  clearTimeout(toast.hideTimeout);
+  toast.hideTimeout = setTimeout(() => {
     toast.style.display = "none";
   }, 3000);
 };
@@ -27,23 +30,22 @@ if (form) {
       return;
     }
 
-    // ✅ Store values BEFORE reset
-    const userName = form.user_name.value;
-    const userEmail = form.user_email.value;
-
     try {
       await emailjs.sendForm(serviceID, templateID, form, publicKey);
-      showToast("✅ Message sent successfully!", true);
+      showToast("✅ Message sent successfully!");
       form.reset();
 
-      // ✅ Auto-reply (only if env variables present)
+      // 🟢 Silent auto-reply (no toast)
       const replyService = import.meta.env.VITE_EMAILJS_REPLY_SERVICE;
       const replyTemplate = import.meta.env.VITE_EMAILJS_REPLY_TEMPLATE;
+
       if (replyService && replyTemplate) {
-        await emailjs.send(replyService, replyTemplate, {
-          to_email: userEmail,
-          to_name: userName
-        }, publicKey);
+        emailjs.send(replyService, replyTemplate, {
+          to_email: form.user_email.value,
+          to_name: form.user_name.value
+        }, publicKey).catch(err => {
+          console.warn("Auto-reply failed (silent):", err);
+        });
       }
 
     } catch (err) {
