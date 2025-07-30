@@ -27,18 +27,22 @@ if (form) {
       return;
     }
 
+    // ✅ Store values BEFORE reset
+    const userName = form.user_name.value;
+    const userEmail = form.user_email.value;
+
     try {
       await emailjs.sendForm(serviceID, templateID, form, publicKey);
-      showToast("✅ Message sent successfully!");
+      showToast("✅ Message sent successfully!", true);
       form.reset();
 
-      // Optional: Send auto-reply to user (if you’ve configured the template)
+      // ✅ Auto-reply (only if env variables present)
       const replyService = import.meta.env.VITE_EMAILJS_REPLY_SERVICE;
       const replyTemplate = import.meta.env.VITE_EMAILJS_REPLY_TEMPLATE;
       if (replyService && replyTemplate) {
         await emailjs.send(replyService, replyTemplate, {
-          to_email: form.user_email.value,
-          to_name: form.user_name.value
+          to_email: userEmail,
+          to_name: userName
         }, publicKey);
       }
 
