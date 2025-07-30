@@ -1,10 +1,7 @@
-const emailjs = require("emailjs-com");
-
 exports.handler = async function (event, context) {
   try {
     const { user_name, user_email, message } = JSON.parse(event.body);
 
-    // Optional: Validate fields
     if (!user_name || !user_email || !message) {
       return {
         statusCode: 400,
@@ -12,7 +9,6 @@ exports.handler = async function (event, context) {
       };
     }
 
-    // Send Email using EmailJS REST API (NOT browser SDK)
     const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
       headers: {
@@ -21,7 +17,7 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({
         service_id: process.env.VITE_EMAILJS_SERVICE_ID,
         template_id: process.env.VITE_EMAILJS_TEMPLATE_ID,
-        user_id: process.env.VITE_EMAILJS_PUBLIC_KEY, // Public key, not secret
+        user_id: process.env.VITE_EMAILJS_PUBLIC_KEY,
         template_params: {
           from_name: user_name,
           reply_to: user_email,
