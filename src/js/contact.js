@@ -1,3 +1,5 @@
+import emailjs from "@emailjs/browser";
+
 const showToast = (msg, success = true) => {
   const toast = document.getElementById("toast");
   if (!toast) return;
@@ -12,42 +14,26 @@ const showToast = (msg, success = true) => {
 const form = document.getElementById("contact-form");
 
 if (form) {
-  form.addEventListener("submit", async function (e) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // const formData = {
-    //   user_name: form.name.value,
-    //   user_email: form.email.value,
-    //   message: form.message.value,
-    // };
-
-const formData = {
-  user_name: form.elements["user_name"].value,
-  user_email: form.elements["user_email"].value,
-  message: form.elements["message"].value,
-};
-
-
-    try {
-      const res = await fetch("/.netlify/functions/sendEmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || import.meta.env.EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || import.meta.env.EMAILJS_TEMPLATE_ID,
+        form,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          showToast("✅ Message sent successfully!");
+          form.reset();
         },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await res.json();
-      if (result.success) {
-        showToast("✅ Message sent successfully!");
-        form.reset();
-      } else {
-        console.error(result.error);
-        showToast("❌ Failed to send message.");
-      }
-    } catch (err) {
-      console.error("Network error:", err);
-      showToast("❌ Failed to send message.");
-    }
+        (error) => {
+          console.error("FAILED...", error);
+          showToast("❌ Something went wrong.");
+        }
+      );
   });
 }
