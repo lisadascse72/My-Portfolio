@@ -14,26 +14,22 @@ const showToast = (msg, success = true) => {
 const form = document.getElementById("contact-form");
 
 if (form) {
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID || import.meta.env.EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID || import.meta.env.EMAILJS_TEMPLATE_ID,
         form,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log("SUCCESS!", result.text);
-          showToast("✅ Message sent successfully!");
-          form.reset();
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          showToast("❌ Something went wrong.");
-        }
       );
+
+      showToast("✅ Message sent successfully!");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      showToast("❌ Failed to send message.");
+    }
   });
 }
