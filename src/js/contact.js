@@ -24,6 +24,7 @@ if (form) {
     try {
       const res = await fetch("/.netlify/functions/sendEmail", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -33,12 +34,12 @@ if (form) {
         showToast("✅ Message sent successfully!");
         form.reset();
       } else {
-        showToast("❌ Failed to send message");
+        showToast("❌ Message failed");
         console.error(result.error);
       }
     } catch (err) {
       showToast("❌ Error occurred");
-      console.error("❌ Error:", err);
+      console.error(err);
     }
   });
 }
