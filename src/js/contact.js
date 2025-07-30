@@ -15,31 +15,34 @@ if (form) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const data = {
+    const payload = {
       user_name: this.user_name.value,
       user_email: this.user_email.value,
       message: this.message.value,
     };
 
     try {
-      const res = await fetch("/.netlify/functions/sendEmail", {
+      const response = await fetch("/.netlify/functions/sendEmail", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
-      const result = await res.json();
+      const result = await response.json();
 
       if (result.success) {
         showToast("✅ Message sent successfully!");
-        form.reset();
+        this.reset();
       } else {
-        showToast("❌ Message failed");
         console.error(result.error);
+        showToast("❌ Message failed");
       }
-    } catch (err) {
-      showToast("❌ Error occurred");
-      console.error(err);
+
+    } catch (error) {
+      console.error(error);
+      showToast("❌ Something went wrong");
     }
   });
 }
