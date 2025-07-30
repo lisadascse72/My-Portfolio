@@ -1,5 +1,3 @@
-import emailjs from "emailjs-com";
-
 const showToast = (msg, success = true) => {
   const toast = document.getElementById("toast");
   if (!toast) return;
@@ -14,22 +12,37 @@ const showToast = (msg, success = true) => {
 const form = document.getElementById("contact-form");
 
 if (form) {
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    emailjs.sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      form,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
-    .then(() => {
-      showToast("✅ Message sent successfully!");
-      form.reset();
-    })
-    .catch((error) => {
-      console.error(error);
-      showToast("❌ Message failed");
-    });
+    const formData = new FormData(form);
+    const payload = {
+      user_name: formData.get("user_name"),
+      user_email: formData.get("user_email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/.netlify/functions/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        showToast("✅ Message sent successfully!");
+        form.reset();
+      } else {
+        showToast("❌ Message failed to send.");
+        console.error("Server error:", data.error);
+      }
+    } catch (err) {
+      console.error("Request error:", err);
+      showToast("❌ Message failed. Try again later.");
+    }
   });
 }
