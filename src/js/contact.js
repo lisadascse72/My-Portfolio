@@ -15,11 +15,10 @@ if (form) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    const payload = {
-      user_name: formData.get("user_name"),
-      user_email: formData.get("user_email"),
-      message: formData.get("message"),
+    const formData = {
+      user_name: form.name.value,
+      user_email: form.email.value,
+      message: form.message.value,
     };
 
     try {
@@ -28,21 +27,20 @@ if (form) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
-
-      if (res.ok && data.success) {
+      const result = await res.json();
+      if (result.success) {
         showToast("✅ Message sent successfully!");
         form.reset();
       } else {
-        showToast("❌ Message failed to send.");
-        console.error("Server error:", data.error);
+        console.error(result.error);
+        showToast("❌ Failed to send message.");
       }
     } catch (err) {
-      console.error("Request error:", err);
-      showToast("❌ Message failed. Try again later.");
+      console.error("Network error:", err);
+      showToast("❌ Failed to send message.");
     }
   });
 }
