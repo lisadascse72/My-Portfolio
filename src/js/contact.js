@@ -15,11 +15,18 @@ if (form) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const formData = {
-      user_name: form.name.value,
-      user_email: form.email.value,
-      message: form.message.value,
-    };
+    // const formData = {
+    //   user_name: form.name.value,
+    //   user_email: form.email.value,
+    //   message: form.message.value,
+    // };
+
+const formData = {
+  user_name: form.elements["user_name"].value,
+  user_email: form.elements["user_email"].value,
+  message: form.elements["message"].value,
+};
+
 
     try {
       const res = await fetch("/.netlify/functions/sendEmail", {
